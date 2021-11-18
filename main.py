@@ -14,7 +14,8 @@ screen = pygame.display.set_mode((800, 600))
 background = pygame.image.load('altbackground.png')
 
 # Sound
-mixer.music.load("newbackground.wav")
+mixer.music.load("angusmcfife.wav")
+mixer.music.set_volume(0.2)
 mixer.music.play(-1)
 
 # Caption and Icon
@@ -37,9 +38,9 @@ enemyY_change = []
 num_of_enemies = 6
 
 for i in range(num_of_enemies):
-    enemyImg.append(pygame.image.load('enemy2.png'))
+    enemyImg.append(pygame.image.load('enemy3.png'))
     enemyX.append(random.randint(0, 736))
-    enemyY.append(random.randint(50, 150))
+    enemyY.append(random.randint(50, 100))
     enemyX_change.append(4)
     enemyY_change.append(40)
 
@@ -120,6 +121,7 @@ while running:
             if event.key == pygame.K_SPACE:
                 if bullet_state is "ready":
                     bulletSound = mixer.Sound("newlaser.wav")
+                    bulletSound.set_volume(0.1)
                     bulletSound.play()
                     # Get the current x cordinate of the spaceship
                     bulletX = playerX
@@ -150,16 +152,17 @@ while running:
 
         enemyX[i] += enemyX_change[i]
         if enemyX[i] <= 0:
-            enemyX_change[i] = 4
+            enemyX_change[i] = .5
             enemyY[i] += enemyY_change[i]
         elif enemyX[i] >= 736:
-            enemyX_change[i] = -4
+            enemyX_change[i] = -.5
             enemyY[i] += enemyY_change[i]
 
         # Collision
         collision = isCollision(enemyX[i], enemyY[i], bulletX, bulletY)
         if collision:
             explosionSound = mixer.Sound("explosion.wav")
+            explosionSound.set_volume(0.1)
             explosionSound.play()
             bulletY = 480
             bullet_state = "ready"
