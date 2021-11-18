@@ -123,19 +123,19 @@ def fire_bullet(x, y):
     # Score
 
     # if keystroke is pressed check whether its right or left
-        if event.type == pygame.KEYDOWN:
-            if event.key == pygame.K_LEFT:
-                playerX_change = -5
-            if event.key == pygame.K_RIGHT:
-                playerX_change = 5
-            if event.key == pygame.K_SPACE:
-                if bullet_state is "ready":
-                    bulletSound = mixer.Sound("newlaser.wav")
-                    bulletSound.set_volume(0.1)
-                    bulletSound.play()
-                    # Get the current x cordinate of the spaceship
-                    bulletX = playerX
-                    fire_bullet(bulletX, bulletY)
+    if event.type == pygame.KEYDOWN:
+        if event.key == pygame.K_LEFT:
+            playerX_change = -5
+        if event.key == pygame.K_RIGHT:
+            playerX_change = 5
+        if event.key == pygame.K_SPACE:
+            if bullet_state is "ready":
+                bulletSound = mixer.Sound("newlaser.wav")
+                bulletSound.set_volume(0.1)
+                bulletSound.play()
+                # Get the current x cordinate of the spaceship
+                bulletX = playerX
+                fire_bullet(bulletX, bulletY)
 
     score_value = 0
     font = pygame.font.Font('freesansbold.ttf', 32)
