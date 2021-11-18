@@ -15,9 +15,9 @@ while repeat:
 
 
     # Sound
-    mixer.music.load("force.wav")
-    mixer.music.set_volume(0.2)
-    mixer.music.play(-1)
+    # mixer.music.load("force.wav")# 
+    # mixer.music.set_volume(0.2)
+    # mixer.music.play(-1)
 
     # Background
     background = pygame.image.load('altbackground.png')
@@ -38,6 +38,13 @@ while repeat:
     playerY = 480
     playerX_change = 0
 
+    # Enemy
+    enemyImg = []
+    enemyX = []
+    enemyY = []
+    enemyX_change = []
+    enemyY_change = []
+    num_of_enemies = 6
 
 for i in range(num_of_enemies):
     enemyImg.append(pygame.image.load('enemy3.png'))
@@ -94,7 +101,7 @@ def fire_bullet(x, y):
     screen.blit(bulletImg, (x + 16, y + 10))
 
     # Enemy
-    enemyImg = []
+    """yImg = []
     enemyX = []
     enemyY = []
     enemyX_change = []
@@ -145,7 +152,7 @@ def fire_bullet(x, y):
     testY = 10
 
     # Game Over
-    over_font = pygame.font.Font('freesansbold.ttf', 64)
+    over_font = pygame.font.Font('freesansbold.ttf', 64)"""
 
 
     def show_score(x, y):
