@@ -14,7 +14,7 @@ screen = pygame.display.set_mode((800, 600))
 background = pygame.image.load('altbackground.png')
 
 # Sound
-mixer.music.load("angusmcfife.wav")
+mixer.music.load("force.wav")
 mixer.music.set_volume(0.2)
 mixer.music.play(-1)
 
